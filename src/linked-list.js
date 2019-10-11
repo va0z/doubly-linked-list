@@ -1,27 +1,80 @@
 const Node = require('./node');
 
 class LinkedList {
-    constructor() {}
+    
+    constructor() {
+        // arr (pN, N, nN)
+        // this.list=[];
+        this.list=[];
+        
+    }
+    
 
-    append(data) {}
+    append(data) {
+        this.list.push(data);
+        // console.log(this.list.join());
+    }
 
-    head() {}
+    // get _head () {
+    //     // console.log("_head: " + this.list.length + " data: " + this.list[0])
+    //     console.log("h: " + this.list.join());
+    //     return this.list[0];
+    // }
 
-    tail() {}
+    // get _tail () {
+    //     console.log("_tail: " + this.list.length + " data: " + this.list[this.list.length-1])
+    //     // console.log("t: " + this.list.join());
+    //     return this.list[this.list.length-1];
+    // }
 
-    at(index) {}
+    get length() {
+        return this.list.length;
+    }
 
-    insertAt(index, data) {}
+    head() {
+        if (this.list.length == 0) return null;
+        else return this.list[0];
+    }
 
-    isEmpty() {}
+    tail() {
+        if (this.list.length == 0) return null;
+        else return this.list[this.list.length-1];
+    }
 
-    clear() {}
+    at(index) {
+        return this.list[index];
+    }
 
-    deleteAt(index) {}
+    insertAt(index, data) {
+        this.list.splice(index, 0, data);
+        // this.list[index] = data;
+    }
 
-    reverse() {}
+    isEmpty() {
+        // console.log("!: " + this.list.length);
+        if (this.list.length == 0) return true;
+        else return false ;
+    }
 
-    indexOf(data) {}
+    clear() {
+        console.log("1: " + this.list.join() + " l: " + this.list.length);
+        this.list.length = 0;
+        // this.list.splice(0, this.list.length);
+        console.log("2: " + this.list.join() + " l: " + this.list.length);
+    }
+
+    deleteAt(index) {
+        this.list.splice(index, 1);
+    }
+
+    reverse() {
+        this.list.reverse();
+    }
+
+    indexOf(data) {
+        return this.list.indexOf(data);
+    }
+
 }
 
 module.exports = LinkedList;
